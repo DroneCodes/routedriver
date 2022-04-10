@@ -1,4 +1,5 @@
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,14 +7,16 @@ class BuildRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(10),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Container(
-              padding: EdgeInsets.only(left: 10),
+              padding: EdgeInsets.only(right: 110, top: 60),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +40,6 @@ class BuildRoute extends StatelessWidget {
 
             // Code given to me by Sebastine Odeh
             Container(
-              padding: EdgeInsets.only(left: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -45,9 +47,9 @@ class BuildRoute extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: Colors.white10,
+                      color: Colors.white,
                     ),
-                    width: 80,
+                    width: 100,
                     alignment: Alignment.topCenter,
                     child: Column(
                       children: [
@@ -59,7 +61,7 @@ class BuildRoute extends StatelessWidget {
                             color: Colors.purpleAccent,
                           ),
                           child: Container(
-                            height: 20,
+                            height: 50,
                             width: 24,
                             child: Icon(Icons.subway_outlined),
                           ),
@@ -83,9 +85,9 @@ class BuildRoute extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 8),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: Colors.white10,
+                      color: Colors.white,
                     ),
-                    width: 80,
+                    width: 100,
                     alignment: Alignment.topCenter,
                     child: Column(
                       children: [
@@ -94,10 +96,10 @@ class BuildRoute extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(16),
-                            color: Colors.white60,
+                            color: Colors.grey,
                           ),
                           child: Container(
-                            height: 20,
+                            height: 50,
                             width: 24,
                             child: Icon(Icons.local_taxi_outlined),
                           ),
@@ -119,8 +121,11 @@ class BuildRoute extends StatelessWidget {
 
                   SizedBox(width: 20),
                   Container(
-                    height: 20,
-                    color: Colors.white38,
+                    decoration: BoxDecoration(
+                      border: Border.all(),
+                      color: Colors.white,
+                    ),
+                    width: 40,
                     child: Icon(Icons.add,),
                   ),
                 ],
@@ -128,25 +133,108 @@ class BuildRoute extends StatelessWidget {
             ),
 
             SizedBox(
-              height: 30,
+              height: 50,
             ),
 
             Container(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              width: size.width * 0.8,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(16),
-                    topLeft: Radius.circular(16)),
-                color: Colors.white10,
+                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(30)),
+                color: Colors.grey,
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 10,
-                  ),
-                  
+              height: 50,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.location_on_outlined, color: Colors.black12),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text("Your location", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),
+                    SizedBox(
+                      width: 30,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            SizedBox(
+              height: 3,
+            ),
+
+            Container(
+              padding: EdgeInsets.only(left: 20, right: 20),
+              width: size.width * 0.8,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(30),
+                    bottomLeft: Radius.circular(30)),
+                color: Colors.grey,
+              ),
+              height: 50,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Icon(Icons.directions, color: Colors.orangeAccent),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text("Your Destination", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),
+                    SizedBox(
+                      width: 30,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+            SizedBox(
+              height: 30,
+            ),
+
+            DottedBorder(
+              color: Colors.black,
+                borderType: BorderType.RRect,
+                radius: Radius.circular(30),
+                strokeWidth: 1,
+                dashPattern: [
+                  3,
+                  3
                 ],
-              ),
+                child: Container(
+                  width: size.width * 0.8,
+                  height: 60,
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          color: Color.fromARGB(255, 224, 180, 239)
+                        ),
+                        child: Icon(Icons.add, color: Colors.purpleAccent,),
+                      ),
+                    ],
+                  ),
+              )
+            ),
+
+            SizedBox(
+              height: 30,
             ),
           ],
         ),
