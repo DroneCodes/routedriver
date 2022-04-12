@@ -14,16 +14,14 @@ class BuildRoute extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(206, 220, 213, 214),
       body: Container(
-        padding: EdgeInsets.all(10),
-        child: Expanded(
+        padding: EdgeInsets.all(40),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(right: 110, top: 40 ),
+                padding: EdgeInsets.only(top: 50 ),
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text("Build", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 40),),
                     SizedBox(
@@ -45,7 +43,7 @@ class BuildRoute extends StatelessWidget {
               // Code given to me by Sebastine Odeh
               Container(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
                       padding: EdgeInsets.only(bottom: 8),
@@ -124,14 +122,18 @@ class BuildRoute extends StatelessWidget {
                     ),
 
                     SizedBox(width: 20),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+                    InkWell(
+                      // TODO: add a page for the add or a recursive code
+                      // onTap: ,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.white,
+                        ),
+                        width: 40,
+                        height: 40,
+                        child: Icon(Icons.add,),
                       ),
-                      width: 40,
-                      height: 40,
-                      child: Icon(Icons.add,),
                     ),
                   ],
                 ),
@@ -211,20 +213,21 @@ class BuildRoute extends StatelessWidget {
               ),
 
               DottedBorder(
-                color: Colors.black,
-                  borderType: BorderType.RRect,
+                  color: Colors.black,
                   radius: Radius.circular(30),
+                  borderType: BorderType.RRect,
                   strokeWidth: 1,
                   dashPattern: [
                     1,
                     3
                   ],
                   child: Container(
-                    width: size.width * 0.8,
+                    padding: EdgeInsets.only(left: 20),
+                    width: size.width,
                     height: 60,
-                    padding: EdgeInsets.only(left: 20, right: 20),
                     decoration: BoxDecoration(
                       color: Colors.white,
+                      borderRadius: BorderRadius.circular(20.0)
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -256,9 +259,6 @@ class BuildRoute extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  SizedBox(
-                    width: 35,
-                  ),
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
@@ -295,7 +295,7 @@ class BuildRoute extends StatelessWidget {
               )
             ],
           ),
-        ),
+
       ),
     );
   }
