@@ -2,6 +2,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:routedriver/directions/direction.dart';
+import 'package:routedriver/route/textfield/destinationtext.dart';
+import 'package:routedriver/route/textfield/textfield.dart';
 
 class BuildRoute extends StatelessWidget {
 
@@ -17,7 +20,7 @@ class BuildRoute extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Container(
-                padding: EdgeInsets.only(right: 110, top: 40),
+                padding: EdgeInsets.only(right: 110, top: 40 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -138,66 +141,71 @@ class BuildRoute extends StatelessWidget {
                 height: 50,
               ),
 
-              Container(
-                padding: EdgeInsets.only(left: 20, right: 20),
-                width: size.width * 0.8,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(30),
-                      topLeft: Radius.circular(30)),
-                  color: Color.fromARGB(206, 220, 213, 214),
-                ),
-                height: 50,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(Icons.location_on_outlined, color: Colors.black12),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text("Your location", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),
-                      SizedBox(
-                        width: 30,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              // Location input field change to TextField
+              // TODO: Change this to a Rounded at the top input field
+              // Container(
+              //   padding: EdgeInsets.only(left: 20, right: 20),
+              //   width: size.width * 0.8,
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.only(
+              //         topRight: Radius.circular(30),
+              //         topLeft: Radius.circular(30)),
+              //     color: Color.fromARGB(206, 220, 213, 214),
+              //   ),
+              //   height: 50,
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       children: [
+              //         Icon(Icons.location_on_outlined, color: Colors.black12),
+              //         SizedBox(
+              //           width: 15,
+              //         ),
+              //         Text("Your location", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),
+              //         SizedBox(
+              //           width: 30,
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              
+              InputTextField(onChanged: (value) {}, hintText: "Your Location", icon: Icons.location_on_outlined),
 
               SizedBox(
                 height: 3,
               ),
 
-              Container(
-                padding: EdgeInsets.only(left: 20, right: 20),
-                width: size.width * 0.8,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(30),
-                      bottomLeft: Radius.circular(30)),
-                  color: Color.fromARGB(206, 220, 213, 214),
-                ),
-                height: 50,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(Icons.directions, color: Colors.orangeAccent),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text("Your Destination", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),
-                      SizedBox(
-                        width: 30,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              // Container(
+              //   padding: EdgeInsets.only(left: 20, right: 20),
+              //   width: size.width * 0.8,
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.only(
+              //         bottomRight: Radius.circular(30),
+              //         bottomLeft: Radius.circular(30)),
+              //     color: Color.fromARGB(206, 220, 213, 214),
+              //   ),
+              //   height: 50,
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.start,
+              //       children: [
+              //         Icon(Icons.directions, color: Colors.orangeAccent),
+              //         SizedBox(
+              //           width: 15,
+              //         ),
+              //         Text("Your Destination", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.black),),
+              //         SizedBox(
+              //           width: 30,
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
 
+              DestinationText(onChanged: (value) {}, hintText: "Your Destination", icon: Icons.directions),
               SizedBox(
                 height: 30,
               ),
@@ -265,16 +273,24 @@ class BuildRoute extends StatelessWidget {
                     width: 20,
                   ),
 
-                  Container(
-                    margin: const EdgeInsets.symmetric(vertical: 15),
-                    height: 60,
-                    width: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.black
-                      ),
-                      child:
-                      Center(child: const Text("Build Route", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),))),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                            return Directions();
+                          }));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(vertical: 15),
+                      height: 60,
+                      width: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.black
+                        ),
+                        child:
+                        Center(child: const Text("Build Route", style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),))),
+                  ),
                 ],
               )
             ],
