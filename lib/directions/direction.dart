@@ -16,7 +16,7 @@ class Directions extends StatelessWidget {
           )
         ),
           child: Padding(
-            padding: const EdgeInsets.only(top: 50, left: 30),
+            padding: const EdgeInsets.only(top: 100, left: 30,),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -27,7 +27,7 @@ class Directions extends StatelessWidget {
                     SizedBox(
                       width: 10,
                     ),
-                    Text("the route", style: TextStyle(color: Colors.white, fontSize: 40,),)
+                    Text("the route", style: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.normal),)
                   ],
                 ),
 
@@ -117,11 +117,68 @@ class Directions extends StatelessWidget {
                 ),
 
                 Container(
-                  padding: EdgeInsets.only(right: 250),
-                  height: size.height * 0.07,
-                  child: Image.network("https://cdn-icons.flaticon.com/png/512/195/premium/195118.png?token=exp=1649808512~hmac=5bcd6bb7250f649b02d10252f703a62a",
+                  padding: EdgeInsets.only(right: 300),
+                  height: size.height * 0.08,
+                  child: Image.network("https://cdn-icons-png.flaticon.com/512/1040/1040224.png",
                     height: 50,
                     fit: BoxFit.cover,),
+                ),
+
+                SizedBox(
+                  height: size.height * 0.1,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Transport", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.normal),),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text("Bike", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),)
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(
+                      width: 60,
+                    ),
+
+                    Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Distance", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.normal),),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text("5.2 km", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),)
+                        ],
+                      ),
+                    ),
+
+
+                    SizedBox(
+                      width: 60,
+                    ),
+
+                    Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Time", style: TextStyle(color: Colors.grey, fontWeight: FontWeight.normal),),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text("15 mins", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),)
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

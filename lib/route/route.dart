@@ -202,10 +202,9 @@ class BuildRoute extends StatelessWidget {
             //   ),
             // ),
             Container(
-              padding: EdgeInsets.only(right: 30),
-                width: size.width,
+                width: size.width * 0.9,
                 child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InputTextField(
                     onChanged: (value) {},
@@ -267,7 +266,7 @@ class BuildRoute extends StatelessWidget {
                   height: 60,
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(20.0)),
+                      borderRadius: BorderRadius.circular(30.0)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
